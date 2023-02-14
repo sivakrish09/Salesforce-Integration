@@ -1,0 +1,16 @@
+@isTest
+public class testApexClass{
+    @isTest
+    static void getMethod()
+    {
+        List<case> caserResult =salesforceOrgAIntegrate.getcaseRecord();
+        system.Assert(caserResult != null);
+    }
+    @isTest
+    static void createCase()
+    {
+          Id CaseIds = salesforceOrgAIntegrate.createCase('Testing', 'open', 'Web', 'High');
+          Case caseList = [SELECT id,Status FROM Case WHERE Id =: CaseIds];
+          System.assertEquals('Open', caseList.Status);
+      }
+      }
